@@ -83,8 +83,8 @@ return [
                 'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
                 'updatePost' => App\GraphQL\Mutations\UpdatePostMutation::class, 
                 'deletePost' => App\GraphQL\Mutations\DeletePostMutation::class, 
-                // 'registerUser' => \App\GraphQL\Mutations\AuthMutator::class,
-                // 'login' => \App\GraphQL\Mutations\Login::class,
+                'register' => \App\GraphQL\Mutations\RegisterMutation::class,
+                'login' => \App\GraphQL\Mutations\LoginMutation::class,
             ],
             'types' => [
                 'Post' => App\GraphQL\Types\PostType::class,
@@ -103,9 +103,8 @@ return [
     // ]
     //
     'types' => [
-        // ExampleType::class,
-        // ExampleRelationType::class,
-        // \Rebing\GraphQL\Support\UploadType::class,
+        'AuthPayload' => App\GraphQL\Types\AuthPayloadType::class,
+        'User' => App\GraphQL\Types\UserType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
