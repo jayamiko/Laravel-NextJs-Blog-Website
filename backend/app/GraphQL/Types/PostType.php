@@ -29,6 +29,10 @@ class PostType extends GraphQLType
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The content of the post',
             ],
+            'id_user' => [
+                'type' => Type::nonNull(Type::int()),
+                'description' => 'The id_user of the post',
+            ],
             'created_at' => [
                 'type' => Type::nonNull(Type::string()),
                 'description' => 'The created at of the post',

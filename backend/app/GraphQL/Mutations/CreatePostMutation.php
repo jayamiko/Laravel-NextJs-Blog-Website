@@ -28,6 +28,10 @@ class CreatePostMutation extends Mutation
                 'name' => 'content',
                 'type' => Type::nonNull(Type::string()),
             ],
+            'id_user' => [
+                'name' => 'id_user',
+                'type' => Type::nonNull(Type::int()),
+            ],
         ];
     }
 
@@ -36,6 +40,7 @@ class CreatePostMutation extends Mutation
         $post = new Post();
         $post->title = $args['title'];
         $post->content = $args['content'];
+        $post->id_user = $args['id_user'];
         $post->save();
 
         return 'Post created successfully';

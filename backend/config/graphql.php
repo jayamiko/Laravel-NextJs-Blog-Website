@@ -79,6 +79,7 @@ return [
                 'posts' => App\GraphQL\Queries\PostsQuery::class,
             ],
             'mutation' => [
+                'createUser' => App\GraphQL\Mutations\CreateUserMutation::class,
                 'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
                 'updatePost' => App\GraphQL\Mutations\UpdatePostMutation::class, 
                 'deletePost' => App\GraphQL\Mutations\DeletePostMutation::class, 
