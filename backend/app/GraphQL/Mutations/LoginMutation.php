@@ -45,7 +45,7 @@ class LoginMutation extends Mutation
         $token = $user->createToken('graphql-token')->plainTextToken;
 
         return [
-            'token' => $token, // Kembalikan objek dengan field token
+            'token' => $token, 
         ];
     }
 }

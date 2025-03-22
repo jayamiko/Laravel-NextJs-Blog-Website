@@ -23,12 +23,6 @@ class Me extends Query
 
     public function resolve($root, $args, $context, ResolveInfo $info)
     {
-        $token = request()->header('Authorization');
-        Log::info($token);
-        Log::info('Authorization Header: ' . $token);
-        Log::info('auth: ' . json_encode(auth()));
-        Log::info('Sanctum user: ' . json_encode(auth()->user()));
-        
         return Auth::user();
     }
 }

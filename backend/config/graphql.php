@@ -79,6 +79,7 @@ return [
                 'posts' => App\GraphQL\Queries\PostsQuery::class,
                 'me' => \App\GraphQL\Queries\Me::class,
             ],
+            'middleware' => ['auth:sanctum'],
             'mutation' => [
                 'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
                 'updatePost' => App\GraphQL\Mutations\UpdatePostMutation::class, 
