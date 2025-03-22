@@ -1,0 +1,29 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+}
+
+type AuthPayload {
+    token: String!
+    user: User!
+}
+
+type Query {
+    me: User @auth
+}
+
+type Mutation {
+    registerUser(
+        name: String! @rules(apply: ["required", "string", "min:3"])
+        email: String!
+            @rules(apply: ["required", "email", "unique:users,email"])
+        password: String! @rules(apply: ["required", "min:6"])
+    ): User @field(resolver: "App\\GraphQL\\Mutations\\AuthMutator@register")
+
+    login(
+        email: String! @rules(apply: ["required", "email"])
+        password: String! @rules(apply: ["required"])
+    ): AuthPayload
+        @field(resolver: "App\\GraphQL\\Mutations\\AuthMutator@login")
+}

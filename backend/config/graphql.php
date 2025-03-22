@@ -77,12 +77,14 @@ return [
             'query' => [
                 'post' => App\GraphQL\Queries\PostQuery::class,
                 'posts' => App\GraphQL\Queries\PostsQuery::class,
+                // 'me' => \App\GraphQL\Queries\Me::class,
             ],
             'mutation' => [
-                'createUser' => App\GraphQL\Mutations\CreateUserMutation::class,
                 'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
                 'updatePost' => App\GraphQL\Mutations\UpdatePostMutation::class, 
                 'deletePost' => App\GraphQL\Mutations\DeletePostMutation::class, 
+                // 'registerUser' => \App\GraphQL\Mutations\AuthMutator::class,
+                // 'login' => \App\GraphQL\Mutations\Login::class,
             ],
             'types' => [
                 'Post' => App\GraphQL\Types\PostType::class,
