@@ -73,26 +73,27 @@ return [
     //  ]
     //
     'schemas' => [
+        'public' => [
+            'query' => [],
+            'mutation' => [
+                'login' => \App\GraphQL\Mutations\LoginMutation::class,
+                'register' => \App\GraphQL\Mutations\RegisterMutation::class,
+            ],
+            'middleware' => [], 
+        ],
+
         'default' => [
             'query' => [
-                'post' => App\GraphQL\Queries\PostQuery::class,
-                'posts' => App\GraphQL\Queries\PostsQuery::class,
                 'me' => \App\GraphQL\Queries\Me::class,
+                'posts' => \App\GraphQL\Queries\PostsQuery::class,
+                'post' => \App\GraphQL\Queries\PostQuery::class,
+            ],
+            'mutation' => [
+                'createPost' => \App\GraphQL\Mutations\CreatePostMutation::class,
+                'updatePost' => \App\GraphQL\Mutations\UpdatePostMutation::class,
+                'deletePost' => \App\GraphQL\Mutations\DeletePostMutation::class,
             ],
             'middleware' => ['auth:sanctum'],
-            'mutation' => [
-                'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
-                'updatePost' => App\GraphQL\Mutations\UpdatePostMutation::class, 
-                'deletePost' => App\GraphQL\Mutations\DeletePostMutation::class, 
-                'register' => \App\GraphQL\Mutations\RegisterMutation::class,
-                'login' => \App\GraphQL\Mutations\LoginMutation::class,
-            ],
-            'types' => [
-                'AuthPayload' => App\GraphQL\Types\AuthPayloadType::class,
-                'User' => App\GraphQL\Types\UserType::class,
-                'Post' => App\GraphQL\Types\PostType::class,
-                'Posts' => App\GraphQL\Types\PostsType::class,
-            ],
         ],
     ],
 
@@ -106,7 +107,10 @@ return [
     // ]
     //
     'types' => [
-        // 
+        'AuthPayload' => App\GraphQL\Types\AuthPayloadType::class,
+        'User' => App\GraphQL\Types\UserType::class,
+        'Post' => App\GraphQL\Types\PostType::class,
+        'Posts' => App\GraphQL\Types\PostsType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.

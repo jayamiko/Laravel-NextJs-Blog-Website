@@ -1,7 +1,7 @@
 type User {
-    id: ID!
-    name: String!
-    email: String!
+  id: ID!
+  name: String!
+  email: String!
 }
 
 type AuthPayload {
@@ -9,10 +9,10 @@ type AuthPayload {
 }
 
 type Query {
-    me: User @auth
+    me: me: User! @guard @auth
 }
 
 type Mutation {
-    register(name: String!, email: String!, password: String!): String!
+    register(name: String!, email: String!, password: String!): User @field(resolver: "App\\GraphQL\\Mutations\\Register")
     login(email: String!, password: String!): AuthPayload
 }
