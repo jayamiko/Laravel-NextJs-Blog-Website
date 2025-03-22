@@ -77,7 +77,7 @@ return [
             'query' => [
                 'post' => App\GraphQL\Queries\PostQuery::class,
                 'posts' => App\GraphQL\Queries\PostsQuery::class,
-                // 'me' => \App\GraphQL\Queries\Me::class,
+                'me' => \App\GraphQL\Queries\Me::class,
             ],
             'mutation' => [
                 'createPost' => App\GraphQL\Mutations\CreatePostMutation::class,
@@ -87,6 +87,8 @@ return [
                 'login' => \App\GraphQL\Mutations\LoginMutation::class,
             ],
             'types' => [
+                'AuthPayload' => App\GraphQL\Types\AuthPayloadType::class,
+                'User' => App\GraphQL\Types\UserType::class,
                 'Post' => App\GraphQL\Types\PostType::class,
                 'Posts' => App\GraphQL\Types\PostsType::class,
             ],
@@ -103,8 +105,7 @@ return [
     // ]
     //
     'types' => [
-        'AuthPayload' => App\GraphQL\Types\AuthPayloadType::class,
-        'User' => App\GraphQL\Types\UserType::class,
+        // 
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.

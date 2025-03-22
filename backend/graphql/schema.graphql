@@ -13,12 +13,6 @@ type Query {
 }
 
 type Mutation {
-    registerUser(
-        name: String! @rules(apply: ["required", "string", "min:3"])
-        email: String!
-            @rules(apply: ["required", "email", "unique:users,email"])
-        password: String! @rules(apply: ["required", "min:6"])
-    ): User @field(resolver: "App\\GraphQL\\Mutations\\AuthMutator@register")
-
+    register(name: String!, email: String!, password: String!): String!
     login(email: String!, password: String!): AuthPayload
 }
